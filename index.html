@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- <link rel="" href="index2.html" /> -->
+
+    <script defer src="./js/suggestions.js"></script>
+    <script defer src="./js/covidCaseModel.js"></script>
+    <script defer src="./js/scrip.js"></script>
+    <script defer src="./js/script.js"></script>
+
+    <title>Vaccines NearBy</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <div class="nav_logo">
+          <span class="icon-t-mobile" style="font-size: 3rem"
+            ><img class="logo" src="./img/logo.png" alt="" /> GoVaxine</span
+          >
+        </div>
+
+        <ul class="nav_lists">
+          <button class="btn nav_closebtn" style="font-size: 3rem">
+            &times;
+          </button>
+          <li class="nav_item">
+            <a href="#about" class="nav_link">About</a>
+          </li>
+          <li class="nav_item">
+            <a href="/login" class="nav_link">LogIn</a>
+          </li>
+          <li class="nav_item">
+            <a href="/login" class="nav_link">Sign Up</a>
+          </li>
+          <li class="nav_item">
+            <a href="#footer" class="nav_link">Contact</a>
+          </li>
+        </ul>
+
+        <div class="nav_overlay overlay hidden"></div>
+
+        <button class="toggle-btn">
+          <span class="icon-menu" style="font-size: 3rem">&#xe9bd;</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <div class="container_img">
+          &nbsp;
+          <!-- <img class="" src="img/img-bg-2.jpg" alt="" /> -->
+        </div>
+        <div class="search">
+          <div class="search_input">
+            <input type="text" placeholder="type to search..." />
+
+            <div class="search_input-box"></div>
+
+            <svg class="search_input-icon">
+              <use href="./icons.svg#icon-search"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="grid_box">
+          Total Cases
+          <div class="grid-value total_cases">0</div>
+        </div>
+        <div class="grid_box">
+          Recovered
+          <div class="grid-value recovered">0</div>
+        </div>
+        <div class="grid_box">
+          Death
+          <div class="grid-value death">0</div>
+        </div>
+        <div class="grid_box">
+          Vaccine taken
+          <div class="grid-value vaccine_taken">0</div>
+        </div>
+        <div class="grid_box">
+          Daily/million
+          <div class="grid-value dailyPer_million">0</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="about">
+      <div class="section_container">
+        <button class="btn btn-section btn--show-modal">Check Vaccines</button>
+        <button class="btn btn-section">Guid Lines</button>
+        <button class="btn btn-section btn-slider">Reminder</button>
+      </div>
+
+      <div class="section_slider">
+        <form action="" class="form">
+          <div class="form_name">
+            <label for="Name" class="">Enter your name </label>
+            <input type="text" name="name" id="Name" required />
+          </div>
+          <div class="form_box">
+            <div class="form_age">
+              <label for="Age" class="">Age</label>
+              <select id="Age" name="age" required>
+                <option value="below_18">below 18</option>
+                <option value="18-50">18-50</option>
+                <option value="50_above">50 above</option>
+              </select>
+            </div>
+            <div class="form_gender">
+              <label for="Gender">Gender</label>
+              <select name="gender" id="Gender" required>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="others">others</option>
+              </select>
+            </div>
+          </div>
+          <div class="form_vaccine-name">
+            <label for="Vacc-Name">Vaccine</label>
+            <select name="vaccine-name" id="Vacc-Name" required>
+              <option value="covishield">covishield</option>
+              <option value="covaxin">covaxin</option>
+            </select>
+          </div>
+          <div class="form_date">
+            <label for="Date">Date of 1st Dose</label>
+            <input type="date" name="" id="Date" required />
+          </div>
+          <div class="submit">
+            <input
+              type="submit"
+              name=""
+              id=""
+              value="Set Reminder"
+              class="btn-submit"
+            />
+          </div>
+        </form>
+      </div>
+      <div class="section_tab">✅ you'll be alerted at the correct time!</div>
+      <button class="btn-notify hidden"></button>
+    </section>
+
+    <footer class="footer" id="footer">
+      <div class="footer_container">
+        <h3 class="footer_caption">take vaccine for a covid free world :)</h3>
+        <button class="btn footer-btn btn--show-modal">Visit Today</button>
+        <div class="footer_nav">
+          <ul class="Nav">
+            <li class="Nav_item">
+              <a href="#section-1" class="Nav_link">About</a>
+            </li>
+            <li class="Nav_item">
+              <a href="#section-2" class="Nav_link"></a>
+            </li>
+            <li class="Nav_item">
+              <a href="#section-3" class="Nav_link"></a>
+            </li>
+            <li class="Nav_item">
+              <a href="#" class="Nav_link">Contact</a>
+            </li>
+          </ul>
+
+          <!-- <div class="footer_icons">
+            <span class="icon-facebook2">&#xea91;</span>
+            <span class="icon-twitter">&#xea96;</span>
+            <span class="icon-linkedin">&#xeac9;</span>
+            <span class="icon-amazon">&#xea87;</span>
+          </div> -->
+        </div>
+        <p class="footer_copyright">
+          &copy; Copyright by
+          <!-- <a
+            class="footer__link twitter-link"
+            target="_blank"
+            href="https://twitter.com/jonasschmedtman"
+            >Jonas Schmedtmann</a> -->
+          Use for learning or your portfolio. Don't use to teach. Don't claim as
+          your own product.
+        </p>
+      </div>
+    </footer>
+
+    <div class="modal hidden" id="modal">
+      <div class="modal_container">
+        <button class="btn--close-modal">&times;</button>
+
+        <h2 class="modal__header">Vaccine Centres Near You</h2>
+
+        <button class="btn btn-refresh">
+          <i class="fa fa-refresh fa-spin" style="font-size: 24px"></i>
+        </button>
+      </div>
+      <ul class="modal_list"></ul>
+    </div>
+
+    <div class="overlay hidden"></div>
+  </body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * self blob: data: gap:; style-src * self 'unsafe-inline' blob: data: gap:; script-src * 'self' 'unsafe-eval' 'unsafe-inline' blob: data: gap:; object-src * 'self' blob: data: gap:; img-src * self 'unsafe-inline' blob: data: gap:; connect-src self * 'unsafe-inline' blob: data: gap:; frame-src * self blob: data: gap:;">
+
+     link(rel='stylesheet' href='/css/style.css')
+    <link rel="shortcut icon" type="image/png" href="./img/favicon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    //- <script defer src="./js/suggestions.js"></script>
+    //- <script defer src="./js/covidCaseModel.js"></script>
+    //- <script defer src="./js/scrip.js"></script>
+    //- <script defer src="./js/script.js"></script>
+
+    <title>GoVaxine | Vaccines NearBy</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <div class="nav_logo">
+          <span class="icon-t-mobile" style="font-size: 3rem">
+          <img class="logo" src="./img/logo.png" alt="" /> GoVaxine</span>
+        </div>
+
+        <ul class="nav_lists">
+          <button class="btn nav_closebtn" style="font-size: 3rem"> X
+           
+          </button>
+          <li class="nav_item">
+            <a href="#about" class="nav_link">About</a>
+          </li>
+        
+          if user
+            li.nav_item
+              a.nav_link.nav--logout(href="/") Sign out
+          else
+            li.nav_item
+              a.nav_link(href="/login") LogIn
+            li.nav_item
+              a.nav_link(href="/signup") Sign Up
+
+
+          <li class="nav_item">
+            <a href="#footer" class="nav_link">Contact</a>
+          </li>
+        </ul>
+
+        <div class="nav_overlay overlay hidden"></div>
+
+        <button class="toggle-btn">
+          <span class="icon-menu" style="font-size: 3rem">&#xe9bd;</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <button class="btn btn-section btn-slider btn-align-right">Reminder</button>
+        <div class="container_img" style="background-image:url('/img/vaccine-bg.jpg')">
+          //- &nbsp;
+          //- <!-- <img class="" src="img/img-bg-2.jpg" alt="" /> -->
+        </div>
+        <div class="search">
+          <div class="search_input">
+            <input type="text" placeholder="type to search..." />
+
+            <div class="search_input-box"></div>
+
+            <svg class="search_input-icon">
+              <use href="./icons.svg#icon-search"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="grid_box">Total Cases
+          <div class="grid-value total_cases">0</div>
+        </div>
+        <div class="grid_box">Recovered
+          <div class="grid-value recovered">0</div>
+        </div>
+        <div class="grid_box">Death
+          <div class="grid-value death">0</div>
+        </div>
+        <div class="grid_box">Vaccine taken
+          <div class="grid-value vaccine_taken">0</div>
+        </div>
+        <div class="grid_box">Daily/million
+          <div class="grid-value dailyPer_million">0</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section" id="about">
+      <div class="section_container">
+        <button class="btn btn-section btn--show-modal">Check Vaccines</button>
+        <button class="btn btn-section btn--guide">Guid Lines</button>
+        <button class="btn btn-section btn-slider">Reminder</button>
+      </div>
+
+      <div class="section_slider">
+        <button class="btn btn-feature" style="color:white">&times;</button>
+        if user 
+          .overlay.hidden
+        else 
+          .overlay
+            <button class="btn btn-feature" style="color:white">&times;</button>
+            p to set reminder sign in first
+        <form action="" class="form reminder_form">
+          <div class="form_name">
+            <label for="Name" class="form__label">Enter your name </label>
+            <input class="form__input" type="text" name="name" id="Name" required />
+          </div>
+          <div class="form_box">
+            <div class="form_age">
+              <label for="Age" class="form__label">Age</label>
+              <select id="Age" name="age" required>
+                <option value="below_18">below 18</option>
+                <option value="18-50">18-50</option>
+                <option value="50_above">50 above</option>
+              </select>
+            </div>
+            <div class="form_gender">
+              <label class="form__label" for="Gender">Gender</label>
+              <select name="gender" id="Gender" required>
+                <option value="male">male</option>
+                <option value="female">female</option>
+                <option value="others">others</option>
+              </select>
+            </div>
+          </div>
+          <div class="form_vaccine-name">
+            <label class="form__label" for="Vacc-Name">Vaccine</label>
+            <select name="vaccine-name" id="Vacc-Name" required>
+              <option value="covishield">covishield</option>
+              <option value="covaxin">covaxin</option>
+            </select>
+          </div>
+          <div class="form_date">
+            <label class="form__label" for="Date">Date of 1st Dose</label>
+            <input type="date" name="form__input" id="Date" required />
+          </div>
+          <div class="submit">
+            <input type="submit" name="" id="" value="Set Reminder" class="btn btn-submit"/>
+          </div>
+        </form>
+      </div>
+      <div class="section_tab">✅ you'll be alerted at the correct time!</div>
+      <button class="btn-notify hidden"></button>
+    </section>
+
+    <footer class="footer" id="footer">
+      <div class="footer_container">
+        <h3 class="footer_caption">take vaccine for a covid free world :)</h3>
+        <div class="footer_nav">
+          <ul class="Nav">
+            <li class="Nav_item">
+              <a href="#section-1" class="Nav_link">About</a>
+            </li>
+            <li class="Nav_item">
+              <a href="#section-2" class="Nav_link"></a>
+            </li>
+            <li class="Nav_item">
+              <a href="#section-3" class="Nav_link"></a>
+            </li>
+            <li class="Nav_item">
+              <a href="#" class="Nav_link">Contact</a>
+            </li>
+          </ul>
+
+           <div class="footer_icons">
+            <span class="icon-facebook2">&#xea91;</span>
+            <span class="icon-twitter">&#xea96;</span>
+            <span class="icon-linkedin">&#xeac9;</span>
+            <span class="icon-amazon">&#xea87;</span>
+          </div> 
+        </div>
+        <p class="footer_copyright">
+        
+          Use @copyright Don't claim as
+          your own product.
+        </p>
+      </div>
+    </footer>
+
+    <div class="modal hidden" id="modal">
+      <div class="modal_container">
+        <button class="btn--close-modal">&times;</button>
+
+        <h2 class="modal__header">Vaccine Centres Near You</h2>
+
+        <button class="btn btn-refresh"> 
+          <i class="fa fa-refresh fa-spin" style="font-size: 24px"></i>
+        </button>
+      - const d = new Date()
+      - let date = (i)=>("0" + (d.getDate()+i)).slice(-2) +"-" +("0" + (d.getMonth() + 1)).slice(-2) +"-" +d.getFullYear();
+        <select n id="modal_date" required>
+          <option value="#{date(0)}">#{date(0)}</option>
+          <option value="#{date(1)}">#{date(1)}</option>
+          <option value="#{date(2)}">#{date(2)}</option>
+          <option value="#{date(3)}">#{date(3)}</option>
+          <option value="#{date(4)}">#{date(4)}</option>
+          <option value="#{date(5)}">#{date(5)}</option>
+          <option value="#{date(6)}">#{date(6)}</option>
+        </select>
+        
+      </div>
+
+      <ul class="modal_list"> 
+       
+      </ul>
+    </div>
+  <div class="overlay hidden"></div>
+
+  
+    script(src="https://unpkg.com/regenerator-runtime@0.13.1/runtime.js")
+    script(src="/js/bundle.js")
+  </body>
+</html>
+

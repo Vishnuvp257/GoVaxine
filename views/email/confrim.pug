@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
+
+        title GoVaxine | verify
+
+    body  
+      p we have sent you a confirmation OTP
+      form#confirm.form(action="/")
+        label enter otp
+        input#otp(type="text" placeholder="••••••" required='' minlength='6')
+        input(type="submit" value="send code")
+
+      
+      script(src="https://unpkg.com/axios/dist/axios.min.js")
+      script(src="https://unpkg.com/regenerator-runtime@0.13.1/runtime.js")
+      script(type="module" src="/js/login.js")

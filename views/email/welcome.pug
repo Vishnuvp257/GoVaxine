@@ -1,0 +1,17 @@
+extends baseEmail
+
+block content
+  p Hello #{name},
+  p Welcome to GoVaxine, we're glad to have you 🎉🙏
+  p We're all fighting hard in this pandemic, so make sure to take vaccine!. Stay safe.
+  table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+    tbody
+      tr
+        td(align='left')
+          table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+            tbody
+              tr
+                td
+                  a(href=`${url}`, target='_blank') Check vaccines
+  p If you need any help with vaccinate, please don't hesitate to contact us!
+  p - Vishnu Prakash, Founder
